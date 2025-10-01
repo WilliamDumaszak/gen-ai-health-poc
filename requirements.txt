@@ -1,3 +1,13 @@
 pandas
 matplotlib
 requests
+datetime
+pathlib
+pyarrow
+langchain
+openai
+chromadb
+tqdm
+feedparser
+beautifulsoup4
+python-dotenv
