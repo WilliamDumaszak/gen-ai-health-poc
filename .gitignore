@@ -207,4 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 # Base de dados
-Base_dados/*
+data/raw/*
+data/processed/*
+.env
