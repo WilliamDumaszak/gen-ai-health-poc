@@ -209,4 +209,4 @@ __marimo__/
 # Base de dados
 data/raw/*
 data/processed/*
-.env
+.env_meu
