@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from pathlib import Path
-from metrics import METRICS
+from src.metrics import METRICS
 
 class VIZ:
     def __init__(self, output_dir: str = "outputs"):
