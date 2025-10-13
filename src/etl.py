@@ -1,6 +1,5 @@
 #import
 import pandas as pd
-from pathlib import Path
 import requests
 from datetime import datetime, timedelta
 
