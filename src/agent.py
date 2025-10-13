@@ -32,3 +32,4 @@ class AGENT():
         )
 
         return self.agent.invoke({"messages": [{"role": "user", "content": contexto}]})
+    
