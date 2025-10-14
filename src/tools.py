@@ -16,15 +16,15 @@ class TOOLS():
         # --- Configuração ---
         self.OUTPUT_DIR = Path(__file__).parent.parent / "reports"
 
-    etl=ETL()
-    df=etl.extract_api_latest()
+        self.etl=ETL()
+        self.df=self.etl.extract_api_latest()
 
     #passa base de dados e extrai as metricas
-    def tool_metrics(self,df) -> dict:
-        growth = METRICS.growth_rate(df)
-        mortality = METRICS.mortality_rate(df)
-        uti = METRICS.uti_rate(df)
-        vacc = METRICS.vaccination_rate(df)
+    def tool_metrics(self) -> dict:
+        growth = METRICS.growth_rate(self.df)
+        mortality = METRICS.mortality_rate(self.df)
+        uti = METRICS.uti_rate(self.df)
+        vacc = METRICS.vaccination_rate(self.df)
         
         return (
             f"- Taxa de crescimento em relação à última semana: {growth:.2f}%\n"
@@ -34,10 +34,10 @@ class TOOLS():
         )
 
     #extrai series diaria a mensal e plota os graficos
-    def tool_charts(self,df) -> dict:
+    def tool_charts(self) -> dict:
         self.OUTPUT_DIR.mkdir(exist_ok=True)
         charts = VIZ(output_dir=self.OUTPUT_DIR)
-        daily_path = charts.plot_daily_cases(df)
-        monthly_path = charts.plot_monthly_cases(df)
+        daily_path = charts.plot_daily_cases(self.df)
+        monthly_path = charts.plot_monthly_cases(self.df)
         
         return  daily_path, monthly_path

@@ -31,21 +31,21 @@ if __name__ == "__main__":
 
     # Executa o Agente de IA
 
-    user_input = st.text_input("Digite sua pergunta:")
+    user_input = st.text_input("Solicite seu relatório sobre SRAG:")
 
-    if st.button("Perguntar"):
-        
+    if st.button("Solicitar Relatório"):
+
+        if "SRAG" not in user_input.upper():
+            st.warning("Pergunte apenas sobre SRAG ou indicadores relacionados.")
+            raise ValueError("Pergunte apenas sobre SRAG ou indicadores relacionados.")
+               
         resposta = agent.run(user_input)
+
+        log=agent.log_agent_interaction(user_input, resposta)
+
         #st.write(resposta[message])
         ultima_mensagem = resposta["messages"][-1]
         st.markdown(ultima_mensagem.content)
-
-        # Imprime as metricas extraidas da API
-        st.subheader("Métricas Principais da Base de Dados do OpenDataSUS (Atualizada Diariamente)")
-
-        metrics=tools.tool_metrics()
-
-        st.markdown(metrics)
 
         # Renderiza os gráficos
         st.subheader("Visualização dos Dados, histórico dos Últimos 30 Dias e 12 Meses")
