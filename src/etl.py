@@ -14,7 +14,7 @@ class ETL:
 
         df_salvo= pd.read_parquet("data/processed/srag_clean.parquet", engine="pyarrow")
         df_salvo["DT_NOTIFIC"] = pd.to_datetime(df_salvo["DT_NOTIFIC"], errors="coerce")
-        if (df_salvo["DT_NOTIFIC"].dt.strftime("%Y-%m-%d") == (self.today - timedelta(days=1)).strftime("%Y-%m-%d")).any():
+        if (df_salvo["DT_NOTIFIC"].dt.strftime("%Y-%m-%d") == (self.today - timedelta(days=7)).strftime("%Y-%m-%d")).any():
             return df_salvo
         else:
             base_url = "https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2025/INFLUD25-{date}.csv"
