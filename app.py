@@ -1,13 +1,6 @@
 #imports
 import streamlit as st
 from PIL import Image
-import sys
-import os
-from pathlib import Path
-
-
-# Ajusta o path para importar módulos de níveis superiores
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.tools import TOOLS
 from src.agent import AGENT
@@ -36,14 +29,13 @@ if __name__ == "__main__":
     if st.button("Solicitar Relatório"):
 
         if "SRAG" not in user_input.upper():
-            st.warning("Pergunte apenas sobre SRAG ou indicadores relacionados.")
+            #st.warning("Pergunte apenas sobre SRAG, a sigla SRAG é obrigatória estar na pergunta.")
             raise ValueError("Pergunte apenas sobre SRAG ou indicadores relacionados.")
                
         resposta = agent.run(user_input)
 
         log=agent.log_agent_interaction(user_input, resposta)
 
-        #st.write(resposta[message])
         ultima_mensagem = resposta["messages"][-1]
         st.markdown(ultima_mensagem.content)
 

@@ -46,11 +46,8 @@ class AGENT():
         contexto = (
             "Você é um assistente de IA especialista em relatórios sobre Síndrome Respiratória Aguda Grave (SRAG). "
             f"Aqui estão métricas extraídas da base OpenDataSUS: {metrics}\n\n"
-            "Regras importantes:\n"
-            "1. Use a ferramenta de busca **no máximo uma vez** para obter notícias recentes.\n"
-            "2. Após obter as informações, **gere o relatório final e encerre a tarefa**.\n"
-            "3. **Não chame a ferramenta novamente** após escrever o relatório.\n"
-            "4. Seja objetivo e claro no texto final.\n\n"
+            "Busque noticias recentes sobre SRAG, usando o TavilySeatch, que ajudem a compor a sua analise.\n"
+            "Sempre cite as fontes.\n"
             f"Pergunta: {user_input}"
         )
 

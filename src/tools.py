@@ -2,6 +2,7 @@
 import sys
 import os
 from pathlib import Path
+from langchain.tools import tool
 
 # Ajusta o path para importar módulos de níveis superiores
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
